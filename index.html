@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script type="text/javascript"
+    src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js">
+</script>
+<script type="text/javascript">
+(function(){
+  emailjs.init({
+    publicKey: "axFMPvViAVO_FqxqV",
+  });
+})();
+</script>
+</head>
+
+<body>
+    <label for="username">
+        FullName:<input type="text"id="username">
+    </label>
+    <br>
+    <label for="email">
+        Email:<input type="text"id="email">
+    </label>
+    <br>
+    <label for="message">
+        message:<textarea id="message"></textarea>
+    </label>
+    <br>
+    <label for="subject">
+        subject:<input type="text"id="subject">
+    </label>
+
+    <button onclick="Submit()">Submit</button>
+
+   
+
+    <script>
+        function Submit(){
+            let userName=document.getElementById("username").Value;
+            let Email=document.getElementById("email").Value;
+            let message=document.getElementById("message").Value;
+            let subject=document.getElementById("subject").Value;
+
+          let params = {
+            full_Name:userName,
+            message:message,
+            subject:subject,
+            email:Email,
+          }
+          emailjs.send("service_73nm635","template_paap289","params").then((res) => {
+                alert("Query Sent");
+                console.log(res)
+    
+
+        })
+        .catch((error) => {console.log(error)})
+ 
+}
+    </script>
+</body>
+</html>
